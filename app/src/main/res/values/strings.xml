@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">HomeWork28SQLite</string>
+    <string name="init_data">Init data</string>
+    <string name="shelves">Полка:</string>
+</resources>
