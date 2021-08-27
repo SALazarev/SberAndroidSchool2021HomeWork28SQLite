@@ -1,6 +1,7 @@
 package com.salazarev.hw28sqlite.presentation;
 
 import android.os.Bundle;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -21,8 +22,13 @@ public class MainActivity extends AppCompatActivity {
         MainViewModel viewModel = new ViewModelProvider(
                 this, new BooksViewModelFactory(getApplicationContext())
         ).get(MainViewModel.class);
-        viewModel.getBooksData().observe(this, books ->
-                listView.setAdapter(new BooksAdapter(books)));
+        viewModel.getBooksData().observe(this, books -> {
+                    listView.setAdapter(new BooksAdapter(books));
+                }
+        );
+
+        Button button = findViewById(R.id.buttonInit);
+        button.setOnClickListener(v -> viewModel.addBookData());
     }
 
 }

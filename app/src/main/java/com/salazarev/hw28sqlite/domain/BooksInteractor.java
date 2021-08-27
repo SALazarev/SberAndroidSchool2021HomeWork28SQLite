@@ -3,7 +3,7 @@ package com.salazarev.hw28sqlite.domain;
 import com.salazarev.hw28sqlite.domain.model.Book;
 
 import java.util.List;
-
+import java.util.UUID;
 
 
 public class BooksInteractor {
@@ -15,7 +15,10 @@ public class BooksInteractor {
     }
 
     public List<Book> getBooks() {
-        mRepository.initRepository();
         return mRepository.books();
+    }
+
+    public void addData() {
+        mRepository.addBook(UUID.randomUUID().toString(), "Название книги", "Автор", 451);
     }
 }

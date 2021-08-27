@@ -5,11 +5,10 @@ import com.salazarev.hw28sqlite.domain.model.Book;
 import java.util.List;
 
 
-
 public interface BooksRepository {
 
-    void initRepository();
-
     List<Book> books();
+
+    void addBook(String uuid, String title, String author, int shelfNumber);
 
 }
