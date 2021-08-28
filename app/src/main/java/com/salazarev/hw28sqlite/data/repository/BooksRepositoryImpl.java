@@ -22,7 +22,7 @@ public class BooksRepositoryImpl implements BooksRepository {
     }
 
     @Override
-    public void addBook(String uuid, String title, String author, int shelfNumber) {
+    public void addBook(String uuid, String title, String author, int shelfNumber, int pageCount) {
         SQLiteDatabase database = mHelper.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -30,7 +30,7 @@ public class BooksRepositoryImpl implements BooksRepository {
         values.put(BooksTable.Columns.TITLE, title);
         values.put(BooksTable.Columns.AUTHOR, author);
         values.put(BooksTable.Columns.SHELF_NUMBER, shelfNumber);
-
+        values.put(BooksTable.Columns.PAGE_COUNT, pageCount);
         database.insert(BooksTable.NAME, null, values);
     }
 
@@ -43,7 +43,8 @@ public class BooksRepositoryImpl implements BooksRepository {
                 BooksTable.Columns.UUID,
                 BooksTable.Columns.TITLE,
                 BooksTable.Columns.AUTHOR,
-                BooksTable.Columns.SHELF_NUMBER
+                BooksTable.Columns.SHELF_NUMBER,
+                BooksTable.Columns.PAGE_COUNT
         };
 
         String sortOrder = BooksTable.Columns.TITLE + " DESC";
@@ -55,7 +56,8 @@ public class BooksRepositoryImpl implements BooksRepository {
                         cursor.getString(cursor.getColumnIndex(BooksTable.Columns.UUID)),
                         cursor.getString(cursor.getColumnIndex(BooksTable.Columns.TITLE)),
                         cursor.getString(cursor.getColumnIndex(BooksTable.Columns.AUTHOR)),
-                        cursor.getInt(cursor.getColumnIndex(BooksTable.Columns.SHELF_NUMBER))
+                        cursor.getInt(cursor.getColumnIndex(BooksTable.Columns.SHELF_NUMBER)),
+                        cursor.getInt(cursor.getColumnIndex(BooksTable.Columns.PAGE_COUNT))
                 ));
             }
         }

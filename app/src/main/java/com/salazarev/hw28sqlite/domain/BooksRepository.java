@@ -9,6 +9,6 @@ public interface BooksRepository {
 
     List<Book> books();
 
-    void addBook(String uuid, String title, String author, int shelfNumber);
+    void addBook(String uuid, String title, String author, int shelfNumber, int pageCount);
 
 }

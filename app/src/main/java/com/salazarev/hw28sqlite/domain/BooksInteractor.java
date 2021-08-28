@@ -19,6 +19,6 @@ public class BooksInteractor {
     }
 
     public void addData() {
-        mRepository.addBook(UUID.randomUUID().toString(), "Название книги", "Автор", 1);
+        mRepository.addBook(UUID.randomUUID().toString(), "Название книги", "Автор", 1, 451);
     }
 }

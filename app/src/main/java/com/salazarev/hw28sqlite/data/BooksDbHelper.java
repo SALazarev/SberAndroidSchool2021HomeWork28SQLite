@@ -14,7 +14,7 @@ public class BooksDbHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "BookShelves.db";
 
     public BooksDbHelper(@Nullable Context context) {
-        super(context, DATABASE_NAME, null, DATABASE_V1);
+        super(context, DATABASE_NAME, null, DATABASE_V2);
     }
 
 
@@ -32,7 +32,7 @@ public class BooksDbHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         if (oldVersion < DATABASE_V2) {
             db.execSQL("ALTER TABLE " + BooksTable.NAME + " ADD " + BooksTable.Columns.PAGE_COUNT + " integer");
-            int defaultPageCount = 451;
+            int defaultPageCount = 2;
             ContentValues contentValues = new ContentValues();
             contentValues.put(BooksTable.Columns.PAGE_COUNT, defaultPageCount);
             db.update(BooksTable.NAME, contentValues, null, null);
