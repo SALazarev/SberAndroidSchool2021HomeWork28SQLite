@@ -9,11 +9,12 @@ import androidx.annotation.Nullable;
 
 public class BooksDbHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_V1 = 1;
+    private static final int DATABASE_V2 = 2;
     private static final String DATABASE_NAME = "BookShelves.db";
 
     public BooksDbHelper(@Nullable Context context) {
-        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        super(context, DATABASE_NAME, null, DATABASE_V1);
     }
 
 
@@ -29,11 +30,13 @@ public class BooksDbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        if (oldVersion < 2) {
+        if (oldVersion < DATABASE_V2) {
             db.execSQL("ALTER TABLE " + BooksTable.NAME + " ADD " + BooksTable.Columns.PAGE_COUNT + " integer");
+            int defaultPageCount = 451;
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(BooksTable.Columns.PAGE_COUNT, defaultPageCount);
+            db.update(BooksTable.NAME, contentValues, null, null);
         }
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(BooksTable.Columns.PAGE_COUNT, 451);
-        db.update(BooksTable.NAME, contentValues, null, null);
+
     }
 }
