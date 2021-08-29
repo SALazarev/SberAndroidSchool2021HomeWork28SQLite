@@ -1,10 +1,9 @@
-package com.salazarev.hw28sqlite.data.repository;
+package com.salazarev.hw28sqlite.data.sqlite;
 
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.salazarev.hw28sqlite.data.BooksDbHelper;
 import com.salazarev.hw28sqlite.data.BooksTable;
 import com.salazarev.hw28sqlite.domain.BooksRepository;
 import com.salazarev.hw28sqlite.domain.model.Book;

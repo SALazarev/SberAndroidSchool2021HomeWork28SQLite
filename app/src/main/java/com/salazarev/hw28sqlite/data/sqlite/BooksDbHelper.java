@@ -1,4 +1,4 @@
-package com.salazarev.hw28sqlite.data;
+package com.salazarev.hw28sqlite.data.sqlite;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,6 +6,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
+
+import com.salazarev.hw28sqlite.data.BooksTable;
 
 public class BooksDbHelper extends SQLiteOpenHelper {
 
