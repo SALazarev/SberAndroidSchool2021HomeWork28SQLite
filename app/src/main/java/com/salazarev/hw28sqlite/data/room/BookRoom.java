@@ -11,7 +11,7 @@ import com.salazarev.hw28sqlite.data.BooksTable;
 public class BookRoom {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = BooksTable.Columns.ID)
-    public int mId;
+    public Integer mId;
     @ColumnInfo(name = BooksTable.Columns.UUID)
     public String mUuid;
     @ColumnInfo(name = BooksTable.Columns.TITLE)
@@ -19,9 +19,9 @@ public class BookRoom {
     @ColumnInfo(name=BooksTable.Columns.AUTHOR)
     public String mAuthor;
     @ColumnInfo(name=BooksTable.Columns.SHELF_NUMBER)
-    public int mShelfNumber;
-    @ColumnInfo(name=BooksTable.Columns.PAGE_COUNT, defaultValue = "2")
-    public int mPageCount;
+    public Integer mShelfNumber;
+    @ColumnInfo(name=BooksTable.Columns.PAGE_COUNT)
+    public Integer mPageCount;
 
     public BookRoom(int id, String uuid, String title, String author, int shelfNumber, int pageCount){
         mId = id;
